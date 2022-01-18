@@ -24,7 +24,7 @@ Reddit API and YouTube Data 4 API are used. YouTube API is kind of a pain to set
 - apiclient
 - oauth2client
 - moviepy → you will need ffmpeg with it
-- skimage → for effects in render.py (such as blur)
+- skimage → for effects in `render.py` (such as blur)
 - praw
 - redvid
 

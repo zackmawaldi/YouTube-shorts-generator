@@ -10,14 +10,14 @@ At the same time, I wanted to work with automated video editing, EC2 and SSH, an
 ### Usage
 I designed the code so that it could be uploaded to an AWS EC2 to make this process fully automatic and in the background.
 
-'main.py' is designed to do the following:
-Get posts from PRAW API via 'reddit_scraper.py' → download first post that's under 3 min (shorts limit) → render video in vertical format via 'render.py' → upload to youtube via 'uploadYT.py'
+`main.py` is designed to do the following:
+Get posts from PRAW API via `reddit_scraper.py` → download first post that's under 3 min (shorts limit) → render video in vertical format via `render.py` → upload to youtube via `uploadYT.py`
 
-'uploadYT.py' is modified sample code from Google's YouTube Data 4 API
+`uploadYT.py` is modified sample code from Google's YouTube Data 4 API
 
-edit 'config.py' for desired setttings
+edit `config.py` for desired setttings
 
-Reddit API and YouTube Data 4 API are used. YouTube API is kind of a pain to set up; there are videos on it on YouTube (meta!). Replace 'client_secrets.json' key with key provided by YouTube Data 4 API. Ensure that 'Manage your YouTube videos' is enabled.
+Reddit API and YouTube Data 4 API are used. YouTube API is kind of a pain to set up; there are videos on it on YouTube (meta!). Replace `client_secrets.json` key with key provided by YouTube Data 4 API. Ensure that 'Manage your YouTube videos' is enabled.
 
 ### Dependencies
 - httplib2

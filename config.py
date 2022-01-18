@@ -13,7 +13,7 @@ youtube = {
 	'title': '',
 	'description': ''
 	'tags': ''
-	'category': 23  # has to be an int, more about category bewlow
+	'category': 23  # has to be an int, more about category below
 	'status': ''  # {public, private, unlisted}
 }
 

@@ -1,6 +1,6 @@
 <img width="750" alt="portfolio_view" src="https://construyenpais.com/wp-content/uploads/YouTube-y-Reddit-las-redes-que-mas-crecieron-en-EE.UU-durante-la-pandemia.png">
 
-# YouTube shorts generator from trending Reddit videos
+# Automatic YouTube Shorts Generator and Uploader (From Trending Reddit Videos)
 
 ### Background
 I had the initial idea that content between platform is very transformative. A lot of Youtube content could be transformed into TikTok content, Instagram to Facebook, Reddit to YouTube, etc. So I decided to start with a slice of this idea. Reddit to Youtube. I chose to make the videos in Youtube shorts format since it's a new field on Youtube, less established, more likely to gain following.

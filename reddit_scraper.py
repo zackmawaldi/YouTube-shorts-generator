@@ -38,10 +38,3 @@ def reddit_scraper(subreddit):  # pulls out top reddit posts
             output.append((url, title, i.author.name))
 
     return output
-
-
-""" Testing code below """
-# login_info_text = open('reddit_login_info.txt', mode='r').read().split(',')
-# lst = reddit_scraper(login_info_text, "arabfunny", 1)
-# print(lst)
-# download_vid(lst[0][0], "/Users/zack/PycharmProjects/tiktokGen/clips/")

@@ -1,24 +1,24 @@
 subreddit = "funny"  # exclude 'r/'
 
 reddit_login = {  # more info to set up rovided by reddit api documentation
-	'client_id': ''
-	'client_secret': ''
-	'password': ''
-	'user_agent': ''
+	'client_id': '',
+	'client_secret': '',
+	'password': '',
+	'user_agent': '',
 	'username': ''
 }
 
 
 youtube = {
 	'title': '',
-	'description': ''
-	'tags': ''
-	'category': 23  # has to be an int, more about category below
+	'description': '',
+	'tags': '',
+	'category': 23,  # has to be an int, more about category below
 	'status': ''  # {public, private, unlisted}
 }
 
 video = {
-	'dimensions': (1080, 1920)  # (horizontal, vertical), currently set vertically for tiktok
+	'dimensions': (1080, 1920),  # (horizontal, vertical), currently set vertically for tiktok
 	'blur': True  # blur non-perfect-fit clip
 }
 

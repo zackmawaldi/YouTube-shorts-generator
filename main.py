@@ -22,6 +22,9 @@ print(vid_list)
 
 x = 0
 while True:
+    if x == len(vid_list):
+        print("no vid less than 60s found!")
+        break
     reddit = Downloader(max_q=True)
     reddit.url = vid_list[x][0]
     reddit.check()
@@ -29,9 +32,6 @@ while True:
         rs.download_vid(vid_list[x][0], directory)
         break
     x += 1
-    if x == 100:
-        print("no vid less than 60s found!")
-        break
 
 os.rename(directory + os.listdir(directory)[0], directory + "main_clip.mp4")
 

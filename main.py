@@ -5,6 +5,8 @@ import render as r
 import reddit_scraper as rs
 import uploadYT as yt
 
+import config
+
 subreddit = config.subreddit  # subreddit wanted here
 
 

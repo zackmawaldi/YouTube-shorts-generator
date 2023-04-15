@@ -34,7 +34,7 @@ Check out this: https://support.google.com/youtube/contact/yt_api_form
 ### Rights
 Feel free to fork and play around with it. You can not use the code commercially before negotiating a deal with me.
 
-### UPDATE
+### UPDATES
 *2023-04-15*
 Google's authentication has changed, and now it's much harder to authenticate through the terminal. I recommend using a computer with a user interface to authenticate and run the program! So, imo, don't bother with EC2, and just use an old/spare laptop if you have one.
 

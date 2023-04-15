@@ -1,40 +1,59 @@
 import praw
 from redvid import Downloader
-import os
-
 import config
 
 
-def download_vid(url, directory):  # Download reddit vid given URL and directory
+def download_vid(url, directory):
+    """
+    Download a video from a given URL and save it to a specified directory.
+
+    Args:
+    url (str): The URL of the video to download.
+    directory (str): The directory to save the downloaded video.
+
+    Returns:
+    None
+    """
+    print("Attempting to download reddit video...")
     download = Downloader(url, max_q=True)
     download.path = directory
-    download.download()
-    print(os.listdir(directory))
+   
+    for attempt in range(1, 50):
+        try:
+            download.download()
+            print("Download success!")
+            break
+        except BaseException as e:
+            print(f"Bugged downloader broke on {attempt} attempt...\n", e)
+    
 
 
-def reddit_scraper(subreddit):  # pulls out top reddit posts
+def scrape_reddit(subreddit):
+    """
+    Scrape top posts from a specified subreddit and return a list of dictionaries containing post information.
+
+    Args:
+    subreddit (str): The name of the subreddit to scrape.
+
+    Returns:
+    A list of dictionaries containing post information.
+    """
     print("Logging into Reddit...")
-
-    red = praw.Reddit(client_id=config.reddit_login['client_id'],
-                      client_secret=config.reddit_login['client_secret'],
-                      password=config.reddit_login['password'],
-                      user_agent=config.reddit_login['user_agent'],
-                      username=config.reddit_login['username'])
-
+    red = praw.Reddit(**config.reddit_login)
     print("Log in success! Retrieving post info...")
-
-    sub = red.subreddit(subreddit).top("week", limit=25)
-
+    sub = red.subreddit(subreddit).top("week", limit=99)
     output = []
 
     for i in sub:
-        print(f"{i.title}")
         if not i.stickied and not i.over_18:
             url = i.url
             if url.split('.')[0] != 'https://v':
                 continue
-            title = i.title
-            print('{}  {}  {}\n{}\n'.format(title, i.subreddit, i.author.name, url))
-            output.append((url, title, i.author.name))
+            output.append({
+                'url': url,
+                'title': i.title,
+                'author': i.author.name
+            })
 
+    print("Scraping reddit success! Returning list of info back to main.")
     return output

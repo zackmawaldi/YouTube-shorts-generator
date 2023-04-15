@@ -1,46 +1,51 @@
-from moviepy.editor import *
 from skimage.filters import gaussian
+from moviepy.editor import VideoFileClip, CompositeVideoClip, vfx
+import os
 
 import config
 
 
 def blur(image):
-    """ Returns a blurred (radius=2 pixels) version of the image """
+    """Returns a blurred (radius=2 pixels) version of the image."""
     return gaussian(image.astype(float), sigma=25)
 
 
-def render(directory,
-           clip_name,
-           output_name,
-           resolution):  # dir and names are strings, resolution is a tuple
+def render(directory, clip_name, output_name, resolution):
+    """
+    Resizes, centers, and renders a video clip with optional edge blur if needed.
 
-    blur = config.video['blur']
-    
-    clip_dir = directory + clip_name
+    Args:
+        directory (str): Directory path of the clip.
+        clip_name (str): Name of the clip file.
+        output_name (str): Desired name of the output file.
+        resolution (tuple): Tuple of the desired resolution of the video.
+
+    Returns:
+        int: 0 for successful rendering and 1 if the video fits the desired format already.
+    """
+    clip_dir = os.path.join(directory, clip_name)
     main_clip = VideoFileClip(clip_dir)
 
-    ratio = main_clip.size[0]/main_clip.size[1]
-    if 0.56 < ratio < 0.565:
-        print(f"clip is very close to 9:16!\n"
-              f"exact: {ratio}\n"
-              f"theoretical: 0.5625")
-        os.rename(directory + "main_clip.mp4", directory + "output.mp4")
+    exact_ratio = main_clip.size[0] / main_clip.size[1]
+    theoretical_ratio = resolution[0] / resolution[1]
+    
+    if theoretical_ratio * 0.95 < exact_ratio < theoretical_ratio * 1.05:
+        print(f"Clip is very close to theoretical aspect ratio!\n"
+              f"Exact: {exact_ratio}\n"
+              f"Theoretical: {theoretical_ratio}")
+        os.rename(os.path.join(directory, "main_clip.mp4"), os.path.join(directory, "output.mp4"))
         return 1
 
-    """ Make bg be a blurred and darkened version of clip """
+    # Make background a blurred and darkened version of clip
     bg = VideoFileClip(clip_dir).resize(resolution)
-    bg = bg.fx(vfx.colorx, 0.5)
-    if blur:
+    bg = bg.fx(vfx.colorx, 0.1)
+    if config.video['blur']:
         bg = bg.fl_image(blur)
-    """"""
 
-    main_clip = main_clip.resize(width=resolution[0])  # resize clip to fit screen
+    main_clip = main_clip.resize(width=resolution[0])
     main_clip = main_clip.set_start(0)
 
-    video = CompositeVideoClip([bg, main_clip.set_position("center", "center")])  # combine bg and clip with centering
-    video.write_videofile(directory + output_name, audio_codec='aac')  # render clip given directory
+    video = CompositeVideoClip([bg, main_clip.set_position("center", "center")])
+    video.write_videofile(os.path.join(directory, output_name), audio_codec='aac')
+
     return 0
-
-
-""" Example usage below """
-# render("/Users/zack/PycharmProjects/tiktokGen/clips/", "0.mp4", "functionTest.mp4", (576, 1024))

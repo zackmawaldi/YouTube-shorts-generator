@@ -32,8 +32,12 @@ Check out this: https://support.google.com/youtube/contact/yt_api_form
 - redvid
 
 ### How to run
-After filing out the needed information above, and installing the dependencies, run `python main.py`. Download a relevant video, edit it, and upload it all in one step.
-If you're super new to coding/python, and don't know how to run a script by `python main.py`, then right-clicking on `main.py` file and running it using `open with` and python running should do the trick.
+After filing out the needed information above, and installing the dependencies, run `python main.py`. It should download a relevant video, edit it, and upload it all in one step.
+If you're super new to coding/python, and don't know how to run a script by `python main.py`, then right-clicking on `main.py` file and running it using `open with` and python's launcher should do the trick.
+
+### Issues / contributions and pull requests
+If you're having any issues: feel free to create an issue request, and/or join this project's [discord server](https://discord.gg/tyxuTJtUKJ).
+If you'd like to contribute, feel free to start a pull request! (and maybe join the server so it's easier to communicate :] )
 
 ### Rights
 Feel free to fork and play around with it. You can not use the code commercially before negotiating a deal with me.

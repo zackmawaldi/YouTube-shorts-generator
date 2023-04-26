@@ -31,6 +31,10 @@ Check out this: https://support.google.com/youtube/contact/yt_api_form
 - praw
 - redvid
 
+### How to run
+After filing out the needed information above, and installing the dependencies, run `python main.py`. Download a relevant video, edit it, and upload it all in one step.
+If you're super new to coding/python, and don't know how to run a script by `python main.py`, then right-clicking on `main.py` file and running it using `open with` and python running should do the trick.
+
 ### Rights
 Feel free to fork and play around with it. You can not use the code commercially before negotiating a deal with me.
 

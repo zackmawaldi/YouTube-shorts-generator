@@ -15,7 +15,7 @@ reddit_login = {
 
 
 youtube = {
-	'tags': ''
+	'tags': '',
 	'category': 23,  # has to be an int, more about category below
 	'status': 'public'  # {public, private, unlisted}
 }

@@ -23,13 +23,19 @@ To get the ability to make your videos public, your program has to go through au
 Check out this: https://support.google.com/youtube/contact/yt_api_form
 
 ### Dependencies
-- httplib2
-- apiclient
-- oauth2client
-- moviepy → you will need ffmpeg with it
-- skimage → for effects in `render.py` (such as blur)
-- praw
-- redvid
+
+Typing these commands into the console, and installing [FFmpeg](https://ffmpeg.org/download.html) should be all the dependencies you need!
+
+```
+pip install redvid
+pip install moviepy
+pip install scikit-image
+pip install apiclient
+pip install praw
+pip install httplib2
+pim install oauth2client
+pip install google-api-python-client
+```
 
 ### How to run
 After filing out the needed information above, and installing the dependencies, run `python main.py`. It should download a relevant video, edit it, and upload it all in one step.

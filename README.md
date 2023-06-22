@@ -11,7 +11,7 @@ At the same time, I wanted to work with automated video editing and learning to 
 #### Conda:
 Conda the easiest way to install the dependencies for this project. If you don't have conda already, follow this tutorial for [Linux/Mac](https://www.youtube.com/watch?v=OH0E7FIHyQo), or this one for [Windows](https://www.youtube.com/watch?v=XCvgyvBFjyM).
 
-If you're unfamiliar, conda allows us manage package dependencies needed in a contained format, thus won't class with other projects' dependencies.
+If you're unfamiliar, conda allows us manage package dependencies needed in a contained format, thus won't clash with other projects' dependencies.
 
 After you've install conda, create the conda environment needed for this project via:
 ```
@@ -39,7 +39,7 @@ pip install google-api-python-client
 ### Set up
 1. Edit `config.py` to your desired settings. You'll input your Reddit API information here. Follow this [tutorial](https://youtu.be/NRgfgtzIhBQ?t=50) on how to set up the Reddit's API.
 
-2. Next you'll need to set up the YouTube side of things. Follow this tutorial on how to [set](https://youtu.be/aFwZgth790Q) up YouTube Data 4 API to obtain your unique `client_secrets.json` file. Place this file in the same directory as to `main.py`.
+2. Next you'll need to set up the YouTube side of things. Follow [this tutorial](https://youtu.be/aFwZgth790Q) on how to set up YouTube Data 4 API to obtain your unique `client_secrets.json` file. Place this file in the same directory as to `main.py`.
 
 >Note: To get the ability to make your videos public, your program has to go through an audit process. Check out this: https://support.google.com/youtube/contact/yt_api_form 
 
@@ -49,8 +49,10 @@ You should now be all set to run the script! Simply type `python main.py` into y
 If you're super new to coding/python, and don't know how to run a script by `python main.py`, then right-clicking on `main.py` file and running it using `open with` and python's launcher should do the trick.
 
 ### Issues / contributions and pull requests
-If you're having any issues: feel free to create an issue request, and/or join this project's [discord server](https://discord.gg/tyxuTJtUKJ).
+If you're having any issues: feel free to create an issue request, and/or join this project's discord server.
 If you'd like to contribute, feel free to start a pull request! (and maybe join the server so it's easier to communicate :) )
+
+<kbd> <br> Join our [Discord](https://discord.gg/tyxuTJtUKJ) for this project! <br> </kbd>
 
 ### Updates
 2023-06-22:
@@ -65,4 +67,4 @@ I wrote this project early in my programming career, and thought I'd come back t
 ### Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=zackmawaldi/YouTube-shorts-generator&type=Date)](https://star-history.com/#zackmawaldi/YouTube-shorts-generator&Date)
 -
-Rights: "Automatic YouTube Shorts Generator and Uploader" is released under an open source MIT License (see LICENSE file). It is free for both non-profit, for-profit, and personal use.
+Rights: "Automatic YouTube Shorts Generator and Uploader" is released under an open source MIT License (see LICENSE file). It is free for non-profit, for-profit, and personal use.

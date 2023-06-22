@@ -23,6 +23,11 @@ def render(directory, clip_name, output_name, resolution):
     Returns:
         int: 0 for successful rendering and 1 if the video fits the desired format already.
     """
+    if resolution is None:
+        print("Config set to pass clip as is. Obliging, passing render.")
+        os.rename(os.path.join(directory, "main_clip.mp4"), os.path.join(directory, "output.mp4"))
+        return 1
+
     clip_dir = os.path.join(directory, clip_name)
     main_clip = VideoFileClip(clip_dir)
 

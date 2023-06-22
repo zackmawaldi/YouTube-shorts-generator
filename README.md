@@ -7,6 +7,8 @@ I had the initial idea that content between platform is very transformative. A l
 
 At the same time, I wanted to work with automated video editing and learning to manage code in a more pythonic way.
 
+---
+
 ### Installation
 #### Conda:
 Conda the easiest way to install the dependencies for this project. If you don't have conda already, follow this tutorial for [Linux/Mac](https://www.youtube.com/watch?v=OH0E7FIHyQo), or this one for [Windows](https://www.youtube.com/watch?v=XCvgyvBFjyM).
@@ -36,6 +38,8 @@ pim install oauth2client
 pip install google-api-python-client
 ```
 
+---
+
 ### Set up
 1. Edit `config.py` to your desired settings. You'll input your Reddit API information here. Follow this [tutorial](https://youtu.be/NRgfgtzIhBQ?t=50) on how to set up the Reddit's API.
 
@@ -43,16 +47,22 @@ pip install google-api-python-client
 
 >Note: To get the ability to make your videos public, your program has to go through an audit process. Check out this: https://support.google.com/youtube/contact/yt_api_form 
 
+---
+
 ### How to run
 You should now be all set to run the script! Simply type `python main.py` into your terminal. It should download a relevant video, edit it, and upload it all in one step.
 
 If you're super new to coding/python, and don't know how to run a script by `python main.py`, then right-clicking on `main.py` file and running it using `open with` and python's launcher should do the trick.
+
+---
 
 ### Issues / contributions and pull requests
 If you're having any issues: feel free to create an issue request, and/or join this project's discord server.
 If you'd like to contribute, feel free to start a pull request! (and maybe join the server so it's easier to communicate :) )
 
 <kbd> <br> Join our [Discord](https://discord.gg/tyxuTJtUKJ) for this project! <br> </kbd>
+
+---
 
 ### Updates
 2023-06-22:
@@ -63,6 +73,8 @@ Added ability to uploaded videos as is from Reddit, without rendering.
 Google's authentication has changed, and now it's much harder to authenticate through the terminal. I recommend using a computer with a user interface to authenticate and run the program! So, imo, don't bother with EC2, and just use an old/spare laptop if you have one.
 
 I wrote this project early in my programming career, and thought I'd come back to it to re-write most of the code to make it much more readable and dynamic. Hope this helps with the issues!
+
+---
 
 ### Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=zackmawaldi/YouTube-shorts-generator&type=Date)](https://star-history.com/#zackmawaldi/YouTube-shorts-generator&Date)

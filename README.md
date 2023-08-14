@@ -34,7 +34,7 @@ pip install scikit-image
 pip install apiclient
 pip install praw
 pip install httplib2
-pim install oauth2client
+pip install oauth2client
 pip install google-api-python-client
 ```
 

@@ -30,7 +30,7 @@ def main():
         if (reddit.duration < 180) and (vid["url"] not in database):
             print("Video chosen:")
             for key, value in vid.items(): print(key, value)
-            reddit_scraper.download_vid(vid["url"], "temp_clips")
+            reddit_scraper.download_vid(vid["url"], "temp_clips/main_clip.mp4")
             break
 
     # Check if a suitable video was found
@@ -38,7 +38,6 @@ def main():
         print("No videos less than 180s found!")
         return False
 
-    shutil.copy(glob.glob(os.path.join('temp_clips', '*.mp4'))[0], os.path.join('temp_clips', 'main_clip.mp4'))
     render.render("temp_clips", "main_clip.mp4", "output.mp4", config.video["dimensions"])
 
     # Upload the video to YouTube
@@ -54,16 +53,5 @@ def main():
 
 
 if __name__ == "__main__":
-    max_attempts = 10
-    success = False
-    for attempt in range(max_attempts):
-        try:
-            success = main()
-            if success:
-                print("Upload Success!")
-                break
-        except Exception as e:
-            print(f"An error occurred in main() on attempt {attempt+1}: {e}")
-    
-    if not success:
-        print(f"Attempted to upload {max_attempts} times with no luck... ending script.")
+    main()
+    print("Upload Success! Check YouTube to verify :)")

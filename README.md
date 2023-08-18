@@ -28,14 +28,7 @@ conda activate shorts-gen
 #### Manual pip install:
 Alternatively, you can manually download FFmpeg and pip install all the packages needed in your desired virtual environment manager. To install FFmpeg, see [this](https://www.google.com/search?q=how+to+install+ffmpeg+on+mac+%2F+windows+10+%2F+linux). Here are the manual pip installs:
 ```
-pip install redvid
-pip install moviepy
-pip install scikit-image
-pip install apiclient
-pip install praw
-pip install httplib2
-pip install oauth2client
-pip install google-api-python-client
+pip install -r requirements.txt
 ```
 
 ---

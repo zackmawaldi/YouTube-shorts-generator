@@ -28,30 +28,47 @@ def main():
         reddit = Downloader(max_q=True)
         reddit.url = vid["url"]
         if (reddit.duration < 180) and (vid["url"] not in database):
-            print("Video chosen:")
-            for key, value in vid.items(): print(key, value)
-            reddit_scraper.download_vid(vid["url"], "temp_clips/main_clip.mp4")
             break
+        else:
+            vid = None
 
     # Check if a suitable video was found
-    if not os.listdir("temp_clips"):
+    if not vid:
         print("No videos less than 180s found!")
         return False
 
+    print("Video chosen:", vid)
+    
+    # Update the database with the video's URL
+    # If upload fails or succeed, video will not be picked again.
+    with open(config.database, "a") as f:
+        f.write(f"{vid['url']},")
+
+    reddit_scraper.download_vid(vid["url"], "temp_clips")
+
+    shutil.copy(glob.glob(os.path.join('temp_clips', '*.mp4'))[0], os.path.join('temp_clips', 'main_clip.mp4'))
     render.render("temp_clips", "main_clip.mp4", "output.mp4", config.video["dimensions"])
 
     # Upload the video to YouTube
     config.youtube["title"] = vid["title"] + " #shorts"
     config.youtube["description"] = "Video by: " + vid["author"]
+    
+    print("Uploading...")
     uploaded = upload.upload("temp_clips/output.mp4", config.youtube)
-
-    # Update the database with the uploaded video's URL
-    with open(config.database, "a") as f:
-        f.write(f"{vid['url']},")
 
     return uploaded
 
 
 if __name__ == "__main__":
-    main()
-    print("Upload Success! Check YouTube to verify :)")
+    # Attempt 10 attempts before quitting
+    # This is due to packages this project relies on are not being reliable
+    success = None
+    for attempt in range(10):
+        try:
+            success = main()
+        except Exception as e:
+            print(f"Error occured on {attempt + 1}:\n", e, "\nRetrying...")
+
+        if success:
+            print("Video uploaded successfully! Check YouTube :)")
+            break

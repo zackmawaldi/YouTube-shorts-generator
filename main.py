@@ -1,4 +1,4 @@
-import os, shutil, glob
+import os, shutil, glob, traceback
 from redvid import Downloader
 
 import render
@@ -67,7 +67,7 @@ if __name__ == "__main__":
         try:
             success = main()
         except Exception as e:
-            print(f"Error occured on {attempt + 1}:\n", e, "\nRetrying...")
+            print(f"Error occured on {attempt + 1}:\n", traceback.format_exc(), "\nRetrying...")
 
         if success:
             print("Video uploaded successfully! Check YouTube :)")

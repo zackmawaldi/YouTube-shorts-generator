@@ -1,6 +1,7 @@
 import praw
 import config
 import subprocess
+from redvid import Downloader
 
 
 def download_vid(url, directory):
@@ -9,22 +10,16 @@ def download_vid(url, directory):
 
     Args:
     url (str): The URL of the video to download.
-    directory (str): The directory to save the downloaded video + file name and extention
+    directory (str): The directory to save the downloaded video
 
     Returns:
     None
     """
-    print("Attempting to download reddit video...")  
-
-    url = url + "/HLSPlaylist.m3u8" # Reddit_URL + /HLSPlaylist.m3u8 is how to get direct reddit "video" url
-
-    cmd = f'ffmpeg -i "{url}" -bsf:a aac_adtstoasc -c copy "{directory}"'
-
-    try:
-        subprocess.run(cmd, check=True, shell=True)
-        print(f"{url} saved successfully @ {directory}")
-    except subprocess.CalledProcessError as e:
-        print(f"\n\nAn error occurred while processing the video. Error: {e}")
+    print(f"Attempting to download the following reddit video: {url}")
+    
+    download = Downloader(url, max_q=True)
+    download.path = directory
+    download.download()
 
 
 def scrape_reddit(subreddit):
